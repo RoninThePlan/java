@@ -9,6 +9,6 @@ public class Main
         Segment s = new Segment();
         s.a=p;
         s.b=p1;
-        System.out.println(s.length(p));
+        System.out.println(s.length());
     }
    }
