@@ -1,7 +1,7 @@
 ﻿import java.util.Map;
 import java.util.HashMap;
 public class Family {
-    private Map<String, Person> familyMembers;
+    private Map<String,Map<String, List<Person>>> familyMembers;
 
     public Family(){
         this.familyMembers=new HashMap<>();
