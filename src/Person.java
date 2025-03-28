@@ -2,10 +2,7 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.security.PublicKey;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.time.*;
 
 public class Person implements Comparable<Person>
@@ -14,12 +11,22 @@ public class Person implements Comparable<Person>
     private String surname;
     private LocalDate dob;
     Set<Person> children=new HashSet<Person>();
+    List<Person> childrenList=new ArrayList<Person>();
     public Person(String name, String surname, LocalDate dob)
     {
         this.name = name;
         this.surname = surname;
         this.dob = dob;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
     public LocalDate getDob()
     {
         return dob;
@@ -39,11 +46,17 @@ public class Person implements Comparable<Person>
         }
          return youngest;
     }
+
     public int compareTo(Person o)
     {
         if(this.getDob().isBefore(o.getDob())) return -1;
         else if(this.getDob().isAfter(o.getDob())) return 1;
         else return 0;
+    }
+
+    public List getChildren(){
+    Collections.sort(this.childrenList);
+    return this.childrenList;
     }
     @Override
     public String toString(){
