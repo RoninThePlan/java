@@ -10,6 +10,7 @@ public class Person implements Comparable<Person>
     private String name;
     private String surname;
     private LocalDate dob;
+    private LocalDate dod;
     Set<Person> children=new HashSet<Person>();
     List<Person> childrenList=new ArrayList<Person>();
     public Person(String name, String surname, LocalDate dob)
@@ -17,6 +18,7 @@ public class Person implements Comparable<Person>
         this.name = name;
         this.surname = surname;
         this.dob = dob;
+        this.dod =dod;
     }
 
     public String getName() {
@@ -58,8 +60,18 @@ public class Person implements Comparable<Person>
     Collections.sort(this.childrenList);
     return this.childrenList;
     }
+    public static Person fromCsvLine(String line){
+        String[] lineParts=line.split(",");
+        String name=lineParts[0].split(" ")[0];
+        String surname=lineParts[0].split(" ")[1];
+        LocalDate dob=LocalDate.parse(lineParts[1].split(" ")[0]);
+        LocalDate dod= null;
+
+        return Person();
+    }
     @Override
     public String toString(){
         return "hejka mam na imie "+this.name+"a na nazwisko"+this.surname;
     }
+
 }

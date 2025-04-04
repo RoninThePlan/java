@@ -13,7 +13,7 @@ public class Family {
  public void addMember(Person... p){
          for(Person p1:p){
              String key=p1.getName()+ " "+p1.getSurname();
-             this.familyMembers.computeIfAbsent(key,k->new ArrayList<Person>())
+             this.familyMembers.computeIfAbsent(key,k->new ArrayList<Person>());
              this.familyMembers.get(key).add(p1);
          }
 
